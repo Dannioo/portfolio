@@ -1,0 +1,402 @@
+<!-- 
+(•_•)
+( •_•)>⌐■-■
+(⌐■_■)
+ -->
+
+<!-- make all sections about games -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<meta name="description" content="The portfolio site of Daniel Jiang">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="author" content="Daniel Jiang">
+	<!-- <script src="anime.min.js"></script> -->
+	<title>Daniel Jiang</title>
+
+	<script>
+		function icon() {
+    		var x = document.getElementById("myTopnav");
+   			 if (x.className === "topnav") {
+       			x.className += " responsive";
+    		} else {
+        		x.className = "topnav";
+    		}
+		}
+	</script>
+
+	<script>
+		var slideIndex = [1,1];
+		var slideId = ["mySlides1", "mySlides2"]
+		showSlides(1, 0);
+		showSlides(1, 1);
+
+		function plusSlides(n, no) {
+		  showSlides(slideIndex[no] += n, no);
+		}
+
+		function showSlides(n, no) {
+		  var i;
+		  var x = document.getElementsByClassName(slideId[no]);
+		  if (n > x.length) {slideIndex[no] = 1}    
+		  if (n < 1) {slideIndex[no] = x.length}
+		  for (i = 0; i < x.length; i++) {
+		     x[i].style.display = "none";  
+		  }
+		  x[slideIndex[no]-1].style.display = "block";  
+		}
+	</script>
+
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		  // Add smooth scrolling to all links
+		  $("a").on('click', function(event) {
+
+		    // Make sure this.hash has a value before overriding default behavior
+		    if (this.hash !== "") {
+		      	// Prevent default anchor click behavior
+		      	event.preventDefault();
+
+		     	// Store hash
+		      	var hash = this.hash;
+
+		      	// Using jQuery's animate() method to add smooth page scroll
+		      	// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		      	$('html, body').animate({
+		        	scrollTop: $(hash).offset().top
+		      	}, 1000, function(){
+		   
+		        // Add hash (#) to URL when done scrolling (default click behavior)
+		        window.location.hash = hash;
+		      });
+		    } // End if
+		  });
+		});
+	</script>
+</head>
+
+<body>
+	<nav>
+		<div class="topnav" id="myTopnav">	
+			<a href="#games">Games</a>
+			<a href="#design">Design</a>
+			<a href="#art">Art</a>
+			<a href="#photo">Photography</a>
+			<a href="#about">About</a>
+			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="icon()">&#9776;</a>		
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div>
+		<p style="padding-bottom: 20px; padding-top: 15px">Welcome to my portfolio site! I hope that all my visitors can not only get a sense of the techniques behind my work, but also what I aim to accomplish with every project. My personal philosophy on games is that they are the most powerful storytelling medium of today's society, and as a designer, I have a duty to use all the facets that only this medium provides to tell stories that are representative of not only different cultures, but also the different values and philosophies that are behind them. I want to create projects that are not only fluid and satisfying to experience, but ones that can expand upon the way that people play games or see the world around them through the mechanics and narratives I present. My work aims to create the same types of experiences that made me fall in love with games as a young kid so many years ago, alongside the other kids whose hearts race over online battles, who cry when they lose a character close to them, and who stare in awe when they look down from the mountaintop they worked so hard to climb. I want to make games that can bring those kids out of tired bodies and sad faces, and games that are powerful enough to bring people, who may look different but laugh the same together over a shared passion.</p>
+	</div>
+
+	<div class="parallax1" id="games">
+		<div class="caption"><h1><span style="padding:10px;"> GAMES </span></h1></div>
+		<div class="quote"><p><i>"Games shouldn't only be fun. They should teach or spark an interest in other things." - Hideo Kojima</i></p></div>
+	</div>
+
+	<p style="text-align: center; padding-top: 40px;">For both Mac and PC!</p>
+	
+	<div style="text-align:center;padding:50px 80px;text-align: center;" style="float:left">
+		<div class="container">
+			<img src="spacecadet.png" class="image" style="object-fit: fill;">
+			<div class="overlay">
+				<div class="text">Space Cadet</div>
+				<div class="container-caption">Simulation of Psychedelic Trip
+					<br>
+					<a href="http://www.mediafire.com/file/p4uu12utg122lhx/windowsbuild.zip" target="_blank">Download</a>
+					<br>
+					<a href="https://github.com/SenSaiyan/spacecadet" target="_blank">Github</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<img src="noct.png" class="image">
+			<div class="overlay">
+				<div class="text">Noct</div>
+				<div class="container-caption" style="padding: 10px;">Couch multiplayer game where players take turns becoming a monster, requires PlayStation 4 controllers
+					<br>
+					<a href="https://github.com/SenSaiyan/noct" target="_blank">Github</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<img src="singing_bone.jpg" class="image">
+			<div class="overlay">
+				<div class="text">Singing Bone</div>
+				<div class="container-caption" style="padding: 10px;">Board game based loosely on the fable <i>The Singing Bone</i>.
+					<br>
+					<a href="https://docs.google.com/document/d/1Qgjcfd0Z-yGKHJTrM7nmBRCty6FpMqksdP1CI_wAZpo/edit?usp=sharing" target="_blank">Instructions</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="parallax2" id="design">
+		<div class="caption"><h1><span style="padding:10px;"> DESIGN </span></h1></div>
+		<div class="quote"><p><i>"Good design is good business." - Ian Schrager</i></p></div>
+	</div>	
+	<div style="text-align:center;padding:50px 80px;text-align: center;" style="float:left">
+		<div class="container">
+			<a href="danieljiang-logoorbrand.png">
+			<img src="thumbnails/danieljiang_logoorbr_esXpx.jpg" class="image">
+			<div class="overlay">
+				<div class="text">Fly Branding</div>
+				<div class="container-caption">Mock Branding for Clothing Line</div>
+			</div>
+		</a>
+		</div>
+		<div class="container">
+			<a href="danieljiang-poster.png">
+			<img src="thumbnails/nier.jpg" class="image">
+			<div class="overlay">
+				<div class="text">Designathon Poster</div>
+				<div class="container-caption">Entry in NYU's Digital Art Club's 2017 Designathon</div>
+			</div>
+		</a>
+		</div>
+		<div class="container">
+			<a href="danieljiang-posterorad.png">
+			<img src="thumbnails/pen.jpg" class="image">
+			<div class="overlay">
+				<div class="text">Designathon Ad</div>
+				<div class="container-caption">Entry in NYU's Digital Art Club's 2017 Designathon</div>
+			</div>
+		</a>
+		</div>
+	</div>
+
+	<!-- change to pantone strips image instead -->
+	<div class="parallax3" id="art">
+		<div class="caption"><h1><span style="padding:10px;"> ART </span></h1></div>
+		<div class="quote"><p><i>"I just love pretty things, whether it is art, a song or a pair of shoes." - Rita Ora</i></p></div>
+	</div>
+
+	<div style="text-align:center;padding:50px 80px;text-align: center;" style="float:left">
+		<div class="slideshow-container">
+			<div class="mySlides1">
+				<div class="container">
+					<a href="Play Time.JPG">
+						<img src="thumbnails/play_time.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Playtime</div>
+							<div class="container-caption">Color Pencil on Paper, Winner of 2011 Scholastic Art and Writing Awards Silver Key</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="mySlides1">
+			 	<div class="container">
+			 		<a href="3D Modeling for Games.jpg">
+			 			<img src="thumbnails/tanks.jpg" class="image" style="">
+			 			<div class="overlay">
+			 				<div class="text">Tanks</div>
+			 				<div class="container-caption">Maya, SCAD Summer Seminar 2011</div>
+			 			</div>
+			 		</a>
+			 	</div>
+			</div>
+
+			<div class="mySlides1">
+			  	<div class="container">
+			  		<a href="Daniel Jiang 1.JPG">
+			  			<img src="thumbnails/patagonia.jpg" class="image" style="">
+			  			<div class="overlay">
+			  				<div class="text">Patagonia</div>
+			  				<div class="container-caption">Graphite and Color Pencil on Paper</div>
+			  			</div>
+			  		</a>
+			  	</div>
+			</div>
+			<div class="mySlides1">
+				<div class="container">
+					<a href="Daniel Jiang 2.JPG">
+						<img src="thumbnails/heat.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Heat</div>
+							<div class="container-caption">Photoshop, SCAD Summer Seminar 2013</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="mySlides1">
+				<div class="container">
+					<a href="Daniel Jiang 3.JPG">
+						<img src="thumbnails/fats.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Fats</div>
+							<div class="container-caption">Clay, SCAD Summer Seminar 2013</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="mySlides1">
+				<div class="container">
+					<a href="DSCN7576.JPG">
+						<img src="thumbnails/dive.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Dive</div>
+							<div class="container-caption">Watercolor on Paper</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="mySlides1">
+				<div class="container">
+					<a href="DSCN7577.JPG">
+						<img src="thumbnails/sun.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">End of Days</div>
+							<div class="container-caption">Watercolor and Color Pencil on Paper</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="mySlides1">
+				<div class="container">
+					<a href="IMG_3319.JPG">
+						<img src="thumbnails/peppers.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">The Red</div>
+							<div class="container-caption">Graphite and Color Pencil on Paper</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="mySlides1">
+				<div class="container">
+					<a href="IMG_3321.JPG">
+						<img src="thumbnails/food.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Groceries</div>
+							<div class="container-caption">Graphite and Color Pencil on Paper</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="mySlides1">
+				<div class="container">
+					<a href="IMG_3324.JPG">
+						<img src="thumbnails/watercolor.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Pathway</div>
+							<div class="container-caption">Watercolor on Paper</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="mySlides1">
+				<div class="container">
+					<a href="IMG_3329.JPG">
+						<img src="thumbnails/interior.jpg" class="image" style="">
+						<div class="overlay">
+							<div class="text">Building Interior</div>
+							<div class="container-caption">Ink and Color Pencil on Paper</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<a class="prev unselectable" onclick="plusSlides(-1, 0)" unselectable="on">&#10094;</a>
+			<a class="next unselectable" onclick="plusSlides(1, 0)" unselectable="on">&#10095;</a>
+
+		</div>
+	</div>
+		
+	<div class="parallax5" id="photo">
+		<div class="caption"><h1><span style="padding:10px;"> Photography </span></h1></div>
+		<div class="quote"><p><i>“A portrait is not made in the camera but on either side of it.” - Edward Steichen</i></p></div>
+	</div>
+	<br style="padding: 0px;">
+	<div style="text-align:center;padding:50px 80px;text-align: center;" style="float:left">
+		<div class="slideshow-container">
+			<div class="mySlides2">
+			  	<a href="_MG_1020.JPG" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+			  		<img src="thumbnails/icecream.jpg" style="">
+				</a>
+			</div>
+
+			<div class="mySlides2">
+			 	<a href="_MG_1021.JPG" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+			 		<img src="thumbnails/car.jpg" style="">
+				</a>
+			</div>
+
+			<div class="mySlides2">
+			  	<a href="Hopeless.png" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+			  		<img src="thumbnails/hopeless.jpg" style="">
+			  	</a>
+			</div>
+			<div class="mySlides2">
+				<a href="halal1.jpg" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+					<img src="thumbnails/halal1.jpg" style="">
+				</a>
+			</div>
+			<div class="mySlides2">
+				<a href="IMG_0201.jpg" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+					<img src="thumbnails/waffles.jpg" style="">
+				</a>
+			</div>
+			<div class="mySlides2">
+				<a href="Nicole's Gift.png" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+					<img src="thumbnails/nicole_s_gift.jpg" style="">
+				</a>
+			</div>
+			<div class="mySlides2">
+				<a href="parttime.jpg" target="_blank" style="box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);">
+					<img src="thumbnails/parttime.jpg" style="">
+				</a>
+			</div>
+
+			<a class="prev unselectable" onclick="plusSlides(-1, 1)" unselectable="on">&#10094;</a>
+			<a class="next unselectable" onclick="plusSlides(1, 1)" unselectable="on">&#10095;</a>
+
+		</div>
+	</div>
+
+	<div class="parallax4" id="about">
+		<div class="caption"><h2><span style="padding:10px;"> ABOUT </span></h2></div>
+	</div>
+
+	<div>
+		<p style="padding-left: 100px; padding-right: 100px; padding-top: 40px; padding-bottom: 60px;">
+			<!-- too generic, stick with games -->
+			<!-- get rid of high school -->
+			<!-- read back -->
+			Born in Alabama and raised in the northern suburbs of Atlanta, I fell in love with video games from a young age. While I also spent time attending art and music classes both in school and after school, I was also very curious about everything in the world around me, and the same sense of adventure that made me fall in love with adventure games from a young age translated into my desire to join the Boy Scouts. I would eventually earn his Eagle Scout during my senior year of high school. I wanted a way to combine his love for playing games and his skill for creating art and enrolled in the Integrated Digital Media program at New York University to learn not only game development but to further evolve my stance on art and how it can be integrated into the technology around us.
+			<br>
+			<br>
+			<!-- elaborate on AB/site leading -->
+			<!-- reduce redundancy -->
+			<!-- bio too over the place, focus on one thing -->
+			<!-- tailor bio -->
+			I chose to come to NYU because I thought it would expand my horizons and meet more people than I would be able to if I had stayed in the South. During his first year, I joined the Violet Leadership Institute at NYU to develop my leadership style, which is based on inclusion and support of all members. I would use then this style to site lead an Alternative Breaks trip in public health to my home city of Atlanta, where I saw the intersectionality between the healthcare system and my own perspective, and to learn the difficulties that his fellow students face in their own studies and experience in New York.
+			<br>
+			<br>
+			Despite branching out into all sorts of areas during my time at college, my passion for making games and having fun with everyone of all walks of life has never once faded. Everything I have done was with the intention of learning of how I can make expereiences enjoyable for all people, and my studies at NYU have all been geared towards game development and design.</p>
+	</div>
+
+	<div style="display: inline-block; text-align: center; width: 100%;">
+		<a href="mailto:djj286@nyu.edu" target="_blank">
+			<img src="mail.png">
+		</a>
+		<a href="Daniel_Jiang_Resume.pdf" target="_blank">
+			<img src="resume.png">
+		</a>
+		<a href="https://www.linkedin.com/in/daniel-jiang-a4165b12a/" target="_blank">
+			<img src="linkedin.png">
+		</a>
+	</div>
+</body>
+</html>
