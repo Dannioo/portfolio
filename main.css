@@ -39,7 +39,7 @@ a:hover {
 }
 
 a:active {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /*work entries*/
@@ -87,8 +87,8 @@ a:active {
 	position: relative;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
+	/*transform: translate(-50%, -50%);*/
+	/*-ms-transform: translate(-50%, -50%);*/
 	text-align: center;
 	opacity: 1;
 }
@@ -96,10 +96,12 @@ a:active {
   color: white;
   font-size: 15px;
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+  /*-ms-transform: translate(-50%, -50%);*/
   text-align: center;
   opacity: 1;
 }
