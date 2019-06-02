@@ -132,7 +132,7 @@ a:active {
 	left: 0;
   right: 0;
 	height: 100%;
-	width: 100%;
+	/*width: 100%;*/
 	opacity: 0;
   padding: 0px;
 	transition: .5s ease;
