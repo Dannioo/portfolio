@@ -298,6 +298,9 @@ nav{
     display: block;
     text-align: left;
   }
+  .parallax1,.parallax2, .parallax3, .parallax4, .parallax5{
+    height: 300;
+  }
 }
 
 
