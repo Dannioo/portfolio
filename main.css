@@ -24,8 +24,10 @@ span{
 
 a{
   text-decoration: none;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: .5%;
+  padding-bottom: .5%;
   
 }
 
@@ -39,7 +41,18 @@ a:visited {
 
 a:hover {
   text-decoration: none;
+}
+
+.container-caption > a:hover {
   background-color: orange;
+  color: white;
+  transition: .5s ease;
+}
+
+.container-caption > a {
+  background-color: #f1f1f1;
+  text-decoration: none;
+  transition: .5s ease;
 }
 
 a:active {
