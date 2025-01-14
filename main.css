@@ -24,22 +24,24 @@ span{
 
 a{
   text-decoration: none;
+  
 }
 
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
+  background-color: orange;
 }
 
 a:active {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /*work entries*/
@@ -182,7 +184,7 @@ a:active {
 }
 
 /*parallax scrolling*/
-.parallax1, .parallax2, .parallax3, .parallax4, .parallax5{
+.parallax1, .parallax2, .parallax3, .parallax4, .parallax5, .parallax-marketing{
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   margin: 0 auto;
@@ -208,6 +210,10 @@ a:active {
 .parallax5{
   background-image: url(img_parallax5.jpg);
 }
+.parallax-marketing{
+  background-image: url(marketing.jpg);
+}
+
 .caption {
   position: relative;
   left: 0;
