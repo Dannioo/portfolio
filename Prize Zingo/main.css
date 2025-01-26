@@ -189,7 +189,7 @@ input:valid {
 .button-48:before {
   animation: opacityFallbackOut .5s step-end forwards;
   backface-visibility: hidden;
-  background-color: rgb(37, 153, 84);
+  background-color: rgb(37, 153, 84, 0.4);
   color:black;
   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
   content: "";
@@ -200,6 +200,7 @@ input:valid {
   transform: translateZ(0);
   transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
   width: 100%;
+  z-index: 1;
 }
 
 .button-48:hover:before {
@@ -212,7 +213,7 @@ input:valid {
 }
 
 .button-48 span {
-  z-index: 1;
+  z-index: 2;
   position: relative;
 }
 

@@ -97,15 +97,9 @@
 			} else if (!formData.address){
 				// if no personal info, show the address section
 				document.getElementById('reminder').classList.remove('hidden');
-				// document.getElementById('reminder').style.display = 'block';
-				// document.getElementById('personalinfo').style.display = 'none';
-				// document.getElementById('address').style.display = 'block';
-				// document.getElementById('contact').style.display = 'none';
-				// document.getElementById('complete').style.display = 'none';
 				document.getElementById('personalinfo').classList.add('hidden');
 				document.getElementById('address').classList.remove('hidden');
 				document.getElementById('contact').classList.add('hidden');
-				// document.getElementById('complete').classList.add('hidden');
 
 			} else{
 				// Hide this form and show the success message
@@ -442,7 +436,7 @@
 						<input type="tel" id="phone" name="phone" placeholder="1234567890" pattern="^\d{10}$" title="Enter 10-digit phone number" required>
 					</div>
 					<div class="button-container">
-						<button onclick="jumpToAddress()" class="button-48">Previous Step</button>
+						<button type="button" onclick="jumpToAddress()" class="button-48">Previous Step</button>
 						<br/>
 						<button type="submit" id="formSubmit-contact" form="contactForm" class="button-48">Submit All Data</button>
 					</div>
