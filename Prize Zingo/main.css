@@ -96,7 +96,7 @@ a:active {
   left: 0;
   width: 100%; /* Ensure it covers the full width of the parent */
   height: 100%; /* Ensure it covers the full height of the parent */
-  background-image: url(parallax1.JPG);
+  background-image: url(parallax1.jpg);
   background-size: cover;
   background-repeat: no-repeat; /* Prevent tiling */
   background-position: center; /* Center the background image */
