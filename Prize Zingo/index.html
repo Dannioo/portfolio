@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="icon.PNG">
+	<meta title="Prize Zingo's Home Makeover Contest">
+	<meta name="description" content="Sign up today for a chance to win up to $10,000 to remodel your home at no cost to you!">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="author" content="Daniel Jiang">
+	<title>Prize Zingo's Dream Home Makeover Sweepstakes</title>
+	<script type="text/javascript">
+	//adds responsive class to navbar, allows for collapsible menu on icon click in mobile view
+		function icon() {
+    		var x = document.getElementById("myTopnav");
+   			 if (x.className === "topnav") {
+       			x.className += " responsive";
+    		} else {
+        		x.className = "topnav";
+    		}
+		}
+	</script>
+	<script type="text/javascript">
+		//script to prevent the page from refreshing on submission of each section, then adds the input data to an object called formData. two different versions of finalSubmission() are defined depending on if the page will post to itself or a different location in a real-world application - simply uncomment the desired version
+
+	    document.addEventListener("DOMContentLoaded", function () {
+	        const personalInfoForm = document.getElementById("personalinfo").querySelector("form");
+	        const addressForm = document.getElementById("address").querySelector("form");
+	        const contactForm = document.getElementById("contact").querySelector("form");
+
+	        // Attach event listeners to each form to prevent default page refreshing behavior
+	        personalInfoForm.addEventListener("submit", function (event) {
+	            event.preventDefault(); // Prevent the default form submission
+	        });
+
+	        addressForm.addEventListener("submit", function (event) {
+	            event.preventDefault(); // Prevent the default form submission
+	        });
+
+	        contactForm.addEventListener("submit", function (event) {
+	            event.preventDefault(); // Prevent the default form submission
+	        });
+	    });
+
+		let formData = {};
+		let complete = false;
+
+		function PISubmission(event) {
+			formData.personalInfo = { //add user input to formData
+				firstName: document.getElementById('firstname').value,
+		    	lastName: document.getElementById('lastname').value,
+		    	dob: document.getElementById('dob').value,
+		    	gender: document.querySelector('input[name="sex"]:checked')?.value
+		  	};
+
+		  	// Hide this form and show the next
+		  	document.getElementById('personalinfo').classList.add('hidden');
+	  	    document.getElementById('address').classList.remove('hidden');
+
+		  	console.log(formData);
+		}
+
+		function AddressSubmission(event) {
+		  formData.address = { //add user input to formData
+		    street: document.getElementById('street').value,
+		    apt: document.getElementById('apt').value,
+		    city: document.getElementById('city').value,
+		    state: document.getElementById('state').value,
+		    zip: document.getElementById('zip').value
+		  };
+
+		  // Hide this form and show the next
+		  document.getElementById('address').classList.add('hidden');
+	      document.getElementById('contact').classList.remove('hidden');
+
+		  console.log(formData);
+		}
+
+		function ContactSubmission(event) {
+			formData.contact = { //add user input to formData
+				email: document.getElementById('email').value,
+				phone: document.getElementById('phone').value
+			};
+
+			console.log(formData);
+
+			if (!formData.personalInfo){
+				//if no address info, show the PI section
+				document.getElementById('reminder').classList.remove('hidden');
+				document.getElementById('personalinfo').classList.remove('hidden');
+				document.getElementById('address').classList.add('hidden');
+				document.getElementById('contact').classList.add('hidden');
+				
+			} else if (!formData.address){
+				// if no personal info, show the address section
+				document.getElementById('reminder').classList.remove('hidden');
+				// document.getElementById('reminder').style.display = 'block';
+				// document.getElementById('personalinfo').style.display = 'none';
+				// document.getElementById('address').style.display = 'block';
+				// document.getElementById('contact').style.display = 'none';
+				// document.getElementById('complete').style.display = 'none';
+				document.getElementById('personalinfo').classList.add('hidden');
+				document.getElementById('address').classList.remove('hidden');
+				document.getElementById('contact').classList.add('hidden');
+				// document.getElementById('complete').classList.add('hidden');
+
+			} else{
+				// Hide this form and show the success message
+				document.getElementById('personalinfo').classList.add('hidden');
+				document.getElementById('address').classList.add('hidden');
+				document.getElementById('contact').classList.add('hidden');
+				document.getElementById('complete').classList.remove('hidden');
+
+				//setting to display: none after adding hidden class prevents user from going back to form sections after completion 
+				document.getElementById('reminder').style.display = 'none';
+				document.getElementById('personalinfo').style.display = 'none';
+				document.getElementById('address').style.display = 'none';
+				document.getElementById('contact').style.display = 'none';
+				document.getElementById('complete').style.display = 'block !important';
+
+				complete = true; //set bool to true to affect if statement logic of navbar
+				// uncomment the following line to call finalSubmission on a live site
+				// finalSubmission();
+			}
+		}
+
+
+		// Use the following script to post form results to current page. Does not work locally, and must be used on a live testing environment
+		// function finalSubmission() {
+		//   // Create the form data object
+		//   const formDataToSend = new FormData();
+		//   // Add personal info data
+		//   for (const key in formData.personalInfo) {
+		//     formDataToSend.append(key, formData.personalInfo[key]);
+		//   }
+		//   // Add address data
+		//   for (const key in formData.address) {
+		//     formDataToSend.append(key, formData.address[key]);
+		//   }
+		//   // Add contact data
+		//   for (const key in formData.contact) {
+		//     formDataToSend.append(key, formData.contact[key]);
+		//   }
+		//   console.log("Sending form data: ", formDataToSend);
+		//   // Send the data via fetch
+		//   fetch(window.location.href, {
+		//     method: 'POST',
+		//     body: formDataToSend,
+		//   })
+		//     .then((response) => {
+		//       if (response.ok) {
+		//         // Display the confirmation message
+		//         const confirmationDiv = document.getElementById('complete');
+		//         confirmationDiv.style.display = 'block';
+		//         // Optionally scroll to the confirmation message
+		//         confirmationDiv.scrollIntoView({ behavior: 'smooth' });
+		//       } else {
+		//         console.error('Submission failed:', response.statusText);
+		//         alert('Something went wrong. Please try again later.');
+		//       }
+		//     })
+		//     .catch((error) => {
+		//       console.error('Error during submission:', error);
+		//       alert('An error occurred. Please try again.');
+		//     });
+		// }
+
+
+		// Use the following function instead to send to another website or server, replace foo.com
+		// function finalSubmission() {
+		//   // Send data using Fetch API
+		//   fetch('https://foo.com', {
+		//     method: 'POST',
+		//     headers: { 'Content-Type': 'application/json' },
+		//     body: JSON.stringify(formData)
+		//   })
+		//     .then(response => {
+		//       if (response.ok) {
+		//         alert('Form submitted successfully!');
+		//       } else {
+		//         alert('Something went wrong. Please try again.');
+		//       }
+		//     })
+		//     .catch(error => {
+		//       console.error('Error submitting form:', error);
+		//       alert('Submission failed. Please try again later.');
+		//     });
+		// }
+	</script>
+	<script type="text/javascript">
+		//use navbar to jump to certain sections of the form, and populate any fields that might have already been entered
+		window.onload = function () {
+		    populateFields();
+		};
+
+		function populateFields() {
+		    // Personal Info
+		    if (formData.personal) {
+		        document.getElementById("first-name").value = formData.personal.firstName || "";
+		        document.getElementById("last-name").value = formData.personal.lastName || "";
+		        document.getElementById("dob").value = formData.personal.dob || "";
+		    }
+
+		    // Address
+		    if (formData.address) {
+		        document.getElementById("street").value = formData.address.street || "";
+		        document.getElementById("city").value = formData.address.city || "";
+		        document.getElementById("state").value = formData.address.state || "";
+		        document.getElementById("zip").value = formData.address.zip || "";
+		    }
+
+		    // Contact
+		    if (formData.contact) {
+		        document.getElementById("email").value = formData.contact.email || "";
+		        document.getElementById("phone").value = formData.contact.phone || "";
+		    }
+		}
+		function jumpToPI(){
+			document.getElementById("personalinfo").classList.remove("hidden");
+			document.getElementById("address").classList.add("hidden");
+			document.getElementById("contact").classList.add("hidden");
+			if (complete == false){ // show send confirmation and hide sections if bool is true
+				document.getElementById('complete').classList.add('hidden');
+				document.getElementById("personalinfo").classList.remove("hidden");
+				document.getElementById("address").classList.add("hidden");
+				document.getElementById("contact").classList.add("hidden");
+			} else {
+				document.getElementById('complete').classList.remove('hidden');
+				document.getElementById("personalinfo").classList.add("hidden");
+				document.getElementById("reminder").classList.add("hidden");
+				document.getElementById("address").classList.add("hidden");
+				document.getElementById("contact").classList.add("hidden");
+			}
+		}
+		function jumpToAddress(){
+			if (complete == false){ // show send confirmation and hide sections if bool is true
+				document.getElementById("personalinfo").classList.add("hidden");
+				document.getElementById("address").classList.remove("hidden");
+				document.getElementById("contact").classList.add("hidden");
+				document.getElementById("complete").classList.add("hidden");
+			} else {
+				document.getElementById('complete').classList.remove('hidden');
+				document.getElementById("personalinfo").classList.add("hidden");
+				document.getElementById("reminder").classList.add("hidden");
+				document.getElementById("address").classList.add("hidden");
+				document.getElementById("contact").classList.add("hidden");
+			}
+		}
+		function jumpToContact(){
+			if (complete == false){ // show send confirmation and hide sections if bool is true
+				document.getElementById("personalinfo").classList.add("hidden");
+				document.getElementById("address").classList.add("hidden");
+				document.getElementById("contact").classList.remove("hidden");
+				document.getElementById("complete").classList.add("hidden");
+			} else {
+				document.getElementById('complete').classList.remove('hidden');
+				document.getElementById("personalinfo").classList.add("hidden");
+				document.getElementById("reminder").classList.add("hidden");
+				document.getElementById("address").classList.add("hidden");
+				document.getElementById("contact").classList.add("hidden");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="intro" id="start">	
+		<img class="img-centered" style="background-color: rgb(211, 211, 211, 0.7);" src="logo.PNG">
+		<h1 style="color: rgb(37, 153, 84);">$10,000</h1><br/><h1>HOME</h1><br/><h1 style="color: rgb(37, 153, 84);">MAKEOVER</h1>
+		<br/>
+		<h2>No Cost To You <img src="check.PNG" style="position: relative;"></h2>
+		<!-- <p>Transform Your Space: Enter Our Home Makeover Contest!</p>
+		<p>Dreaming of a fresh, stylish update to your home? Now's your chance! Enter the Prize Zingo Home Makeover Contest for the opportunity to win a complete design transformation tailored to your taste. Whether it’s a cozy living room, a modern kitchen, or a serene bedroom retreat, we’re here to make it happen at no cost to you. Don’t wait—sign up today and take the first step toward your dream home makeover!</p>
+		<p>Hurry—entries close soon!</p> -->
+		<!-- <img style="padding: 10px;" src="house.PNG" class="img-centered"> -->
+
+		
+	</div>
+
+	<p style="text-align: center; background-color: lightgray;">Fill in your details for a chance to win!</p>
+
+	<!-- navbar/breadcrumb -->
+		<nav>
+			<div class="topnav" id="myTopnav">
+				<!-- <a href="#start">Overview and Rules</a> -->
+				<a href="#myTopnav" onclick="jumpToPI()">Personal Info</a>
+				<a href="#myTopnav" onclick="jumpToAddress()">Home Address</a>
+				<a href="#myTopnav" onclick="jumpToContact()">Contact Info</a>
+				<!-- icon to expand navbar when in mobile view -->
+				<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="icon()">&#9776;</a> 
+			</div>
+		</nav>
+	<!-- <a href="#personalinfo"><button>Get Started</button></a> -->
+
+	<div class="reminder hidden" id="reminder">
+		<p class="required">Please fill out the other parts of the form before submission!</p>
+	</div>
+
+	<div class="all-forms-container">
+		<div class="container" id="personalinfo">
+			<div class="form-section" >
+				<p>First, we'll need some info about yourself:</p>
+				<form onsubmit="PISubmission(event)" id="personalInfoForm">
+					<div class="input-container">
+						<label for="firstname">First Name<span class="required">*</span></label>
+						<br/>
+						<input type="text" id="firstname" name="firstname" placeholder="Peter" pattern="^[a-zA-Z]+$" required title="Enter only letters">
+					</div>
+					<div class="input-container">
+						<label for="lastname">Last Name<span class="required">*</span></label>
+						<br/>
+						<input type="text" id="lastname" name="lastname" placeholder="Parker" pattern="^[a-zA-Z]+$" title="Enter only letters" required>
+					</div>
+					<div class="input-container">
+						<label for="dob">Date of Birth<span class="required">*</span></label>
+						<br/>
+						<input type="date" placeholder="1962-08-10" id="dob" required>
+					</div>
+					<div class="input-container">
+						<label for="sex">Gender<span class="required">*</span></label>
+						<br/>
+						<select name="sex" id="sex" required>
+							<option value="" selected disabled hidden>Make a Selection</option>
+							<option value="female">Female</option>
+							<option value="male">Male</option>
+							<option value="nb">Non-Binary</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="button-container">
+						<button type="submit" form="personalInfoForm" id="formSubmit-personalinfo" class="button-48">Next Step</button>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+
+		<div class="container hidden" id="address">
+			<div class="form-section">
+				<p>Where is the house that you want renovated?</p>
+				<form onsubmit="AddressSubmission(event)" id="addressForm">
+					<div class="input-container">
+						<label for="street">Street Address<span class="required">*</span></label>
+						<br/>
+						<input type="text" id="street" name="street" placeholder="20 Ingram Street" pattern="(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*" title="Please enter a number followed by the street name (e.g., '20 Ingram Street')." required>
+					</div>
+					<div class="input-container">
+						<label for="apt">Apartment Number</label>
+						<br/>
+						<input type="text" id="apt" name="apt" style="border: 2px solid lightblue;">
+					</div>
+					<div class="input-container">
+						<label for="city">City<span class="required">*</span></label>
+						<br/>
+						<input type="text" id="city" name="city" placeholder="Flushing" required pattern="^[a-zA-Z]+$">
+					</div>
+					<div class="input-container">
+						<label for="state">State<span class="required">*</span></label>
+						<br/>
+						<select name="state" id="state" placeholder="New York" required>
+							<option value="" selected disabled hidden>Select a State</option>
+							<option value="AL">Alabama</option>
+							<option value="AK">Alaska</option>
+							<option value="AZ">Arizona</option>
+							<option value="AR">Arkansas</option>
+							<option value="CA">California</option>
+							<option value="CO">Colorado</option>
+							<option value="CT">Connecticut</option>
+							<option value="DE">Delaware</option>
+							<option value="DC">District Of Columbia</option>
+							<option value="FL">Florida</option>
+							<option value="GA">Georgia</option>
+							<option value="HI">Hawaii</option>
+							<option value="ID">Idaho</option>
+							<option value="IL">Illinois</option>
+							<option value="IN">Indiana</option>
+							<option value="IA">Iowa</option>
+							<option value="KS">Kansas</option>
+							<option value="KY">Kentucky</option>
+							<option value="LA">Louisiana</option>
+							<option value="ME">Maine</option>
+							<option value="MD">Maryland</option>
+							<option value="MA">Massachusetts</option>
+							<option value="MI">Michigan</option>
+							<option value="MN">Minnesota</option>
+							<option value="MS">Mississippi</option>
+							<option value="MO">Missouri</option>
+							<option value="MT">Montana</option>
+							<option value="NE">Nebraska</option>
+							<option value="NV">Nevada</option>
+							<option value="NH">New Hampshire</option>
+							<option value="NJ">New Jersey</option>
+							<option value="NM">New Mexico</option>
+							<option value="NY">New York</option>
+							<option value="NC">North Carolina</option>
+							<option value="ND">North Dakota</option>
+							<option value="OH">Ohio</option>
+							<option value="OK">Oklahoma</option>
+							<option value="OR">Oregon</option>
+							<option value="PA">Pennsylvania</option>
+							<option value="RI">Rhode Island</option>
+							<option value="SC">South Carolina</option>
+							<option value="SD">South Dakota</option>
+							<option value="TN">Tennessee</option>
+							<option value="TX">Texas</option>
+							<option value="UT">Utah</option>
+							<option value="VT">Vermont</option>
+							<option value="VA">Virginia</option>
+							<option value="WA">Washington</option>
+							<option value="WV">West Virginia</option>
+							<option value="WI">Wisconsin</option>
+							<option value="WY">Wyoming</option>
+						</select>
+					</div>
+					<div class="input-container">
+						<label for="zip">ZIP Code<span class="required">*</span></label>
+						<br/>
+						<input type="text" id="zip" name="zip" placeholder="11375" pattern="^\d{5}$" title="Please enter a 5-digit ZIP code." required>
+					</div>
+				</form>
+				<div class="button-container">
+					<button onclick="jumpToPI()" class="button-48">Previous Step</button>
+					<br/>
+					<button type="submit" form="addressForm" id="formSubmit-address" class="button-48">Next Step</button>
+				</div>
+			</div>
+		</div>
+		<div class="container hidden" id="contact">
+			<div class="form-section">
+				<p>How can we contact you?</p>
+				<form onsubmit="ContactSubmission(event)" id="contactForm">
+					<div class="input-container">
+						<label for="email">Email<span class="required">*</span></label>
+						<br/>
+						<input type="email" id="email" name="email" placeholder="pparker@dailybugle.com" required>
+					</div>
+					<div class="input-container">
+						<label for="email">Phone<span class="required">*</span></label>
+						<br/>
+						<input type="tel" id="phone" name="phone" placeholder="1234567890" pattern="^\d{10}$" title="Enter 10-digit phone number" required>
+					</div>
+					<div class="button-container">
+						<button onclick="jumpToAddress()" class="button-48">Previous Step</button>
+						<br/>
+						<button type="submit" id="formSubmit-contact" form="contactForm" class="button-48">Submit All Data</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="form-success hidden" id="complete">
+			<p>Thanks for entering the sweepstakes! We'll be in touch if you win.</p>
+		</div>
+	</div>
+
+	<div class="footer">
+		<!-- different colored logo for footer -->
+		<img class="img-centered" src="logo-gray.PNG" style="margin-bottom: 15px;">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper, nisl et eleifend luctus, urna dolor suscipit dui, at consectetur nisi arcu vel enim. Phasellus mollis velit ac dolor feugiat egestas. Nunc nisi sem, lacinia non suscipit eget, facilisis in massa. Quisque blandit turpis sed congue malesuada. Morbi ac imperdiet massa, id rhoncus dui. Pellentesque consequat cursus libero, in tempor est ultricies quis. Nullam ante ante, vehicula pharetra rutrum eget, ultrices vitae tellus. Suspendisse nec ex ligula. Cras luctus ligula eget lobortis gravida.</p>
+		<p>Aliquam quis laoreet orci. Integer imperdiet fermentum nunc id congue. Fusce et erat mauris. Integer mattis cursus lobortis. Aenean hendrerit scelerisque hendrerit. Duis vel semper lectus. Pellentesque non volutpat erat. Vivamus vehicula metus in purus dictum tristique. Donec accumsan feugiat commodo. Nam finibus, nulla in vehicula dictum, lorem neque porta mauris, quis rutrum ante ligula a enim. Aenean ut convallis sapien.</p>
+		<p>Suspendisse potenti. Vestibulum ornare nunc sed urna aliquam, non vestibulum arcu posuere. Duis lobortis, mauris a rutrum condimentum, turpis dolor euismod metus, nec auctor magna nisi id lacus. Aenean in erat odio. Nulla fermentum, erat vitae vestibulum egestas, sem justo cursus magna, ac imperdiet velit neque vitae nisl. Suspendisse vehicula ullamcorper congue. Duis vel vehicula metus. Donec semper quam ut nibh pretium, vitae tincidunt est posuere. Aenean lacus lacus, maximus vitae fringilla consectetur, cursus sed urna. Nullam posuere venenatis magna, id cursus leo bibendum non. Donec vulputate ac elit ut malesuada. Quisque eu pharetra erat. Sed sit amet erat vitae velit consectetur ultricies vel non erat. Nunc ut blandit est, vel ullamcorper metus.</p>
+		
+		<!-- replace the following hrefs with working links in live version -->
+		<div class="footerlinks">
+			<span><a href="">Terms & Conditions</a> | <a href="">Unsubscribe</a> | <a href="">Privacy Policy</a></span>
+		</div>
+		<div class="footerlinks">
+			<span><a href="">Contest Rules</a> | <a href="">Do Not Sell My Info</a></span>
+		</div>
+	</div>
+</body>
+</html>
