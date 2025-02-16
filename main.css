@@ -200,8 +200,8 @@ a:active {
 
 /*parallax scrolling*/
 .parallax1, .parallax2, .parallax3, .parallax4, .parallax5, .parallax-marketing{
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%);
   margin: 0 auto;
   padding: 0px 0px 10px;
   background-attachment: fixed;
@@ -322,6 +322,15 @@ nav{
   .parallax1,.parallax2, .parallax3, .parallax4, .parallax5{
     height: 300;
   }
+
+  .text {
+    font-size: 20px;
+    top: 30%;
+  }
+
+  .container-caption{
+    font-size: 11px;
+    top: 25%;
 }
 
 
