@@ -1,0 +1,392 @@
+/* General Styles */
+body {
+    font-family: Manrope, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 15px;
+}
+
+.header span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.settings {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 15px; /* Space between border and icon */
+}
+
+
+.settings::before {
+    content: "";
+    position: absolute;
+    left: 0; /* Aligns the border with the icon */
+    top: -15px; /* Extends above the element */
+    bottom: -15px; /* Extends below the element */
+    width: 1px;
+    background-color: lightgray;
+}
+
+.header > span {
+    margin-left:15px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust spacing between doctor-info and icons */
+    margin-left: auto; /* Pushes the group to the right */
+}
+
+.header span strong {
+    white-space: nowrap; /* Prevents text wrapping issues */
+}
+
+.icon-spacing {
+    width: 24px; /* Adjust as needed */
+    height: 24px;
+}
+
+.doctor-info {
+    display: flex;
+    align-items: center; /* Align image and text side by side */
+    gap: 10px; /* Adds spacing between image and text */
+}
+
+.doctor-img {
+    max-width: 50px; /* Ensures the image stays a reasonable size */
+    height: auto;
+}
+
+.doctor-text {
+    display: flex;
+    flex-direction: column; /* Stacks name and title vertically */
+    line-height: 1.2; /* Improves text readability */
+}
+
+
+.header .icon {
+    width: 15px;
+    height: 15px;
+}
+
+.logo {
+    width: 200px !important;
+    height: 40px !important;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Main Content Layout */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.selected-patient-img{
+    display: block;
+    margin: 0 auto;
+    padding-top:20px;
+}
+
+#diagnosticChart{
+    max-width: 70%;
+    max-height: 300px;
+    margin: 20px;
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height:560px;
+}
+
+#info > h2, #info > button {
+    align-self: center;
+    margin-bottom:30px;
+    margin-top:10px;
+}
+
+#info > button {
+    background-color: #01F0D0;
+    padding: 8px 15px;
+    border-radius: 100px; 
+}
+
+.info-item {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    gap: 10px; /* Adds space between the image and text */
+    padding-bottom: 20px;
+}
+
+
+.info-text {
+    display: flex;
+    flex-direction: column; /* Stacks text on top of each other */
+    line-height: 1.2; /* Improves text readability */
+}
+
+.diagnostic-chart-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    background-color: #F4F0FE;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.bp-values {
+    display: flex;
+    flex-direction: column; /* Stack the BP values */
+    align-items: center; /* Center content inside */
+    padding: 10px;
+    min-width: 120px;
+}
+
+.bp-header {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+}
+
+/* Active Navigation Item */
+.active {
+    background-color: #01F0D0;
+    padding: 8px 15px;
+    border-radius: 100px; 
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;        
+    gap: 5px;
+}
+
+
+
+.column, .diagnostic-chart-bp-values, .patientList, .diagnostic-list, .lab-reports, .patient-info-big {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.diagnostic-list, .lab-reports{
+    margin-top: 15px;
+}
+
+.lab-reports{
+    height: 367px;
+}
+
+.patientList h2 {
+    display: flex;
+    align-items: center; /* Align text and icon vertically */
+    justify-content: space-between; /* Push text left and icon right */
+    width: 100%; /* Ensure it spans the full width */
+}
+
+.patientList h2 img {
+    margin-left: auto; /* Push the icon to the right */
+}
+
+.diastolic-box {
+    position: relative; /* Ensures positioning context */
+    padding-top: 15px; /* Pushes content down for spacing */
+}
+
+.diastolic-box::before {
+    content: "";  
+    position: absolute;  
+    top: -10px; /* Moves the border upwards */
+    left: 50%;  
+    transform: translateX(-50%); /* Centers the border */
+    width: 120%; /* Adjust width as needed */
+    height: 1px;  
+    background-color: lightgray;  
+}
+
+
+.patientList {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 972px;
+    overflow-y: auto;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center; /* Align everything in the same row */
+    justify-content: space-between; /* Push elements to the edges */
+    width: 100%;
+
+}
+
+.patient-details {
+    flex-grow: 1; /* Allows text to take up remaining space */
+    padding-left: 10px; /* Adds spacing between text and profile image */
+}
+
+.icon-container {
+    display: flex;
+    justify-content: flex-end; /* Center the icon */
+    align-items: center;
+    width: 50px; /* Adjust as needed */
+}
+
+
+/* Customize scrollbar */
+.patientList::-webkit-scrollbar {
+    width: 8px;
+}
+
+.patientList::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.patientList::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Patient List Items */
+.patient-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.patient-item:nth-child(4) {
+    background-color: #D8FCF7;
+}
+
+
+.patient-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right:10px;
+}
+
+/* Vitals Section */
+.vitals {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.vitals div {
+    padding: 10px;
+    border-radius: 5px;
+/*    text-align: center;*/
+    width: 30%;
+}
+#respiratory p, #temp p, #bpm p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.respiratory h2, .temp h2, .bpm h2{
+    margin: 5px 0; /* Reduces top and bottom margin */
+    padding: 0; /* Ensures no extra padding */
+    line-height: 1.2;
+}
+
+.respiratory{
+    background-color: #E0F3FA;
+}
+
+.temp{
+    background-color: #FFE6E9;
+}
+
+.bpm{
+    background-color: #FFE6F1;
+}
+
+/* Diagnostic Table */
+.diagnostic-table {
+    width: 100%;
+    border-collapse: separate; /* Important for border-radius to work */
+    border-spacing: 0; /* Ensures there are no gaps between cells */
+    margin-top: 10px;
+}
+
+/* Apply rounded corners to the first and last th in the header */
+.diagnostic-table thead tr th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.diagnostic-table thead tr th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* Make sure the header row has a background color and hides overflow */
+.diagnostic-table thead {
+    background-color: #d3d3d3;
+    overflow: hidden;
+}
+
+/* Apply a border to the table to unify its look */
+.diagnostic-table th,
+.diagnostic-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Optional: Add rounded corners to the bottom row if needed */
+.diagnostic-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.diagnostic-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+.lab-report-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lab-report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.lab-report-item img {
+    width: 20px;
+    cursor: pointer;
+}

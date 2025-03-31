@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech.Care Dashboard</title>
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    
+    <!-- External Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <img src="images/TestLogo.svg" class="logo"/>
+        <span class="nav-item"><img src="images/home.svg" class="icon"/>Overview</span>
+        <span class="nav-item active"><img src="images/patients.svg" class="icon"/>Patients</span>
+        <span class="nav-item"><img src="images/schedule.svg" class="icon"/>Schedule</span>
+        <span class="nav-item"><img src="images/message.svg" class="icon"/>Message</span>
+        <span class="nav-item"><img src="images/transactions.svg" class="icon"/>Transactions</span>
+        
+        <!-- Header Right Section -->
+        <div class="header-right">
+            <span class="doctor-info">
+                <img src="images/doctor.png" class="doctor-img"/>
+                <div class="doctor-text">
+                    <strong>Dr. Jose Simmons</strong>
+                    <span>General Practitioner</span>
+                </div>
+            </span>
+            <div class="settings">
+                <img src="images/settings.svg" class="icon-spacing"/>
+            </div>
+            <img src="images/more vert.svg" class="icon-spacing"/>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        
+        <!-- Patient List Section -->
+        <div class="patientList">
+            <h2>Patients<img src="images/search.svg"/></h2>
+            <ul id="patientList"></ul>
+        </div>
+        
+        <!-- Diagnosis History Section -->
+        <div id="diagnosisHistory" class="diagnosis-history">
+            <div class="diagnostic-chart-bp-values">
+                <h2>Diagnosis History</h2>
+                <div id="diagnosticChartContainer" class="diagnostic-chart-container">
+                    <canvas id="diagnosticChart"></canvas>
+                    <div class="bp-values">
+                        <p><img src="images/systolic circle.svg"/> <strong>Systolic</strong><br/>
+                        <span id="systolic-value">--</span><span id="systolic-levels"></span></p>
+                        <p class="diastolic-box"><img src="images/diastolic circle.svg"/> <strong>Diastolic</strong><br/>
+                        <span id="diastolic-value">--</span><span id="diastolic-levels"></span></p>
+                    </div>
+                </div>
+                <div class="vitals">
+                    <div class="respiratory" id="respiratory"></div>
+                    <div class="temp" id="temp"></div>
+                    <div class="bpm" id="bpm"></div>
+                </div>
+            </div>
+            <div id="diagnosticList" class="diagnostic-list"></div>
+        </div>
+        
+        <!-- Personal Info and Lab Reports -->
+        <div class="personal-info">
+            <div id="info" class="patient-info-big"></div>
+            <div id="labReports" class="lab-reports"></div>
+        </div>
+    </div>
+</body>
+</html>
